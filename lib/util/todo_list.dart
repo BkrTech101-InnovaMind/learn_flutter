@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class ToDoTitle extends StatelessWidget {
+class ToDoList extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   final Function(bool?)? onChanged;
   final Function(BuildContext)? deleteTask;
 
-  const ToDoTitle({
+  const ToDoList({
     super.key,
     required this.taskName,
     required this.taskCompleted,
@@ -42,12 +42,14 @@ class ToDoTitle extends StatelessWidget {
               ),
 
               // task name
-              Text(
-                taskName,
-                style: TextStyle(
-                    decoration: taskCompleted
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none),
+              Flexible(
+                child: Text(
+                  taskName,
+                  style: TextStyle(
+                      decoration: taskCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none),
+                ),
               ),
             ],
           ),
