@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:learn_flutter/data/saved_tasks.dart';
 import 'package:learn_flutter/util/dialog_box.dart';
-import 'package:learn_flutter/util/todo_title.dart';
+import 'package:learn_flutter/util/todo_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
-          return ToDoTitle(
+          return ToDoList(
             taskName: db.toDoList[index][0],
             taskCompleted: db.toDoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
